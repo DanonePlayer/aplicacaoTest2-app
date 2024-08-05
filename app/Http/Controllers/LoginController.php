@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+
+    public readonly User $user;
+    public function __construct()
+    {
+        $this->user = new User();
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("login");
+        $users = $this->user->all();
+        return view('login', ['users' => $users]);
     }
 
     /**
@@ -60,9 +69,9 @@ class LoginController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(User $user)
     {
-        //
+        return view("user_edit", ["user" => $user]);
     }
 
     /**
@@ -70,13 +79,13 @@ class LoginController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        var_dump($id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
         Auth::logout();
 

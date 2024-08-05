@@ -6,6 +6,7 @@
 
 <h2>Login</h2>
 
+
 <h4>
     @if (@session()->has("success"))
         {{ session()->get("success") }}
@@ -17,12 +18,19 @@
 @if (auth()->check())
     Already logged in {{ auth()->user()->name }} | <a href="{{ route("login.destroy") }}">Logout</a>
 
+    <h3>usuarios ja cadastrados</h3>
+    <ul>
+        @foreach ($users as $user)
+        <li>{{ $user->name }} | <a href="{{ route("login.edit", ["user" => $user->id]) }}">Edit</a> | <a href="{{ route("login.destroy") }}">Delete</a></li>
+        @endforeach
+    </ul>
+
 @else
     @error("error")
         <span>{{ $message }}</span>
     @enderror
 
-    <form action="{{ route("login.store") }}" method="post">    
+    <form action="{{ route("login.store") }}" method="post">
         @csrf
         <input type="text" name="email" value="ce6519@gmail.com">
         @error("email")
