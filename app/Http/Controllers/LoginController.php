@@ -28,7 +28,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //
+        return view("register");
     }
 
     /**
@@ -79,7 +79,12 @@ class LoginController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        var_dump($id);
+        $updated = $this->user->where("id", $id)->update($request->except(["_token", "_method"]));
+        if ($updated) {
+            return redirect()->back()->with("message", "Successfully update");
+        }
+
+        return redirect()->back()->with("message", "Erro update");
     }
 
     /**

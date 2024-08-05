@@ -17,6 +17,8 @@ Route::controller(LoginController::class)->group(function(){
     Route::delete("/logout", "destroy")->name("login.destroy");
 });
 
+
+
 // Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 // Route::Post('/login', [LoginController::class, "store"])->name("login.store");
 // Route::get('/logout', [LoginController::class, "destroy"])->name("login.destroy");

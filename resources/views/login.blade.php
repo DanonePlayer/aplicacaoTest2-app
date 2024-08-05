@@ -4,6 +4,10 @@
 
 <a href="{{ route("home") }}">Home</a>
 
+
+<a href="{{ route("login.create") }}">Register</a>
+<hr>
+
 <h2>Login</h2>
 
 
