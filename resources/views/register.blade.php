@@ -2,7 +2,7 @@
 
 @section("content")
 
-<a href="">Voltar</a>
+<a href="{{ route("home") }}">Voltar</a>
 
 <h2>Register</h2>
 
@@ -11,12 +11,12 @@
 
 @endif
 
-<form action="{{ route("login.store") }}" method="post">
+<form action="{{ route("register.store") }}" method="post">
     @csrf
-    <input type="text" name="name" placeholder="Your name">
-    <input type="text" name="email" placeholder="Your email">
+    <input type="text" name="name" placeholder="Your name" value="Carlos">
+    <input type="text" name="email" placeholder="Your email" value="ce6519@gmail.com">
 
-    <input type="text" name="password" placeholder="Your password">
+    <input type="text" name="password" placeholder="Your password" value="12345678">
     <button type="submit">Create</button>
 </form>
 

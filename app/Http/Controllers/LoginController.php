@@ -23,13 +23,13 @@ class LoginController extends Controller
         return view('login', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view("register");
-    }
+    // /**
+    //  * Show the form for creating a new resource.
+    //  */
+    // public function create()
+    // {
+    //     return view("register");
+    // }
 
     /**
      * Store a newly created resource in storage.

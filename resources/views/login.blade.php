@@ -5,7 +5,7 @@
 <a href="{{ route("home") }}">Home</a>
 
 
-<a href="{{ route("login.create") }}">Register</a>
+<a href="{{ route("register.create") }}">Register</a>
 <hr>
 
 <h2>Login</h2>
@@ -44,7 +44,7 @@
         @error("password")
             <span>{{ $message }}</span>
         @enderror
-        <button type="submit">Login</button>
+        <button type="submit" class="btn btn-success">Login</button>
     </form>
 @endif
 
