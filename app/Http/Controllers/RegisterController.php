@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
 
-    public readonly User $user;
-    // public function __construct()
-    // {
-    //     $this->user = new User();
-    // }
+    public $user;
+    public function __construct(User $user)
+    {
+        $this->user = new User();
+    }
     /**
      * Display a listing of the resource.
      */
@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
         return redirect()->back()->with("message", "Erro create");
     }
-    
+
 
     /**
      * Display the specified resource.

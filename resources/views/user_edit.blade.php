@@ -2,7 +2,7 @@
 
 @section("content")
 
-<a href="{{ route("login.destroy") }}">Logout</a>
+<a href="{{ route("login.logout") }}">Logout</a>
 
 <h2>Edit</h2>
 
@@ -11,7 +11,7 @@
 
 @endif
 
-<form action="{{ route("login.update", ["user" => $user->id]) }}" method="post">
+<form action="{{ route("login.update", ["login" => $user->id]) }}" method="post">
     @csrf
     <input type="hidden" name="_method" value="PUT">
     <input type="text" name="name" value="{{ $user->name }}">

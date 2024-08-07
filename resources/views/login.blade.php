@@ -20,12 +20,11 @@
 <br>
 
 @if (auth()->check())
-    Already logged in {{ auth()->user()->name }} | <a href="{{ route("login.destroy") }}">Logout</a>
-
+    Already logged in {{ auth()->user()->name }} | <a href="{{ route("login.logout") }}">Logout</a>
     <h3>usuarios ja cadastrados</h3>
     <ul>
         @foreach ($users as $user)
-        <li>{{ $user->name }} | <a href="{{ route("login.edit", ["user" => $user->id]) }}">Edit</a> | <a href="{{ route("login.destroy") }}">Delete</a></li>
+        <li>{{ $user->name }} | <a href="{{ route("login.edit", ["login" => $user->id]) }}">Edit</a> | <a href="{{ route("login.show", ["login" => $user->id]) }}">Show</a></li>
         @endforeach
     </ul>
 
@@ -36,11 +35,11 @@
 
     <form action="{{ route("login.store") }}" method="post">
         @csrf
-        <input type="text" name="email" value="ce6519@gmail.com">
+        <input type="email" name="email" value="ce6519@gmail.com">
         @error("email")
             <span>{{ $message }}</span>
         @enderror
-        <input type="password" name="password" value="@carlos1">
+        <input type="password" name="password" value="12345678">
         @error("password")
             <span>{{ $message }}</span>
         @enderror

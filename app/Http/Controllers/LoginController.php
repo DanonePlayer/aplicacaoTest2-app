@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
 
-    public readonly User $user;
-    public function __construct()
+    public $user;
+    public function __construct(User $user)
     {
         $this->user = new User();
     }
@@ -61,17 +61,17 @@ class LoginController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(user $login)
     {
-        //
+        return view("user_show", ["user" => $login]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(user $login)
     {
-        return view("user_edit", ["user" => $user]);
+        return view("user_edit", ["user" => $login]);
     }
 
     /**
@@ -87,13 +87,19 @@ class LoginController extends Controller
         return redirect()->back()->with("message", "Erro update");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy()
-    {
+    public function logout(){
         Auth::logout();
 
         return redirect()->route("login.index");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $delete = $this->user->where("id", $id)->delete();
+
+        return redirect()->route('login.index');
     }
 }

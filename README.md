@@ -4,6 +4,7 @@
 # PHP
 # COMPOSER
 # NODE JS
+# Bootstrap
 
 Extensions:
 DevDb
@@ -35,6 +36,17 @@ Prettier - Code formatter
 SCSS Formatter 
 Vscode Google Translate
 
+criar aplicação dentro do Xamp 
+composer create-project laravel/laravel Example-app
+
+Iniciar servidor
+php artisan serve
+
+criar controllers 
+php artisan make:controller ExempleController (para criar com crud)--resource
+
+iniciar model 
+php artisan migrate
 
 instalar Vite
 npm install
@@ -47,3 +59,6 @@ npm i --save-dev sass
 
 run vite
 npm run dev
+
+
+para rodar com o bootstrap iniciar o server php e o vite
