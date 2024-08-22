@@ -1,12 +1,15 @@
 # aplicacaoTest2-app
  
 # requisitos 
-# PHP
-# COMPOSER
-# NODE JS
-# Bootstrap
+PHP
 
-Extensions:
+COMPOSER
+
+NODE JS
+
+Bootstrap
+
+# Extensions:
 
 DevDb
 
