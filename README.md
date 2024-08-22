@@ -68,6 +68,8 @@ SCSS Formatter
 Vscode Google Translate
 
 
+#Inicar aplicação
+
 criar aplicação dentro do Xamp 
 composer create-project laravel/laravel Example-app
 
